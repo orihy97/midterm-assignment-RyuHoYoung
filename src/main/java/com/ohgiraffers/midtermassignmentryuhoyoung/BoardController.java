@@ -36,11 +36,11 @@ public class BoardController {
 //                System.out.println(changeFile);
                 Path path = Paths.get(filePath + "/" + originFileName).toAbsolutePath();
                 singleFile.transferTo(path.toFile());
-                model.addAttribute("message", "파일 업로드 성공!");
+                model.addAttribute("message", "파일 업로드 성공");
                 model.addAttribute("board", boardDTO);
             } catch (Exception e) {
                 e.printStackTrace();
-                model.addAttribute("message", "파일 업로드 실패!!");
+                model.addAttribute("message", "파일 업로드 실패");
             }
         }
 
