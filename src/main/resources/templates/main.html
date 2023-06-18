@@ -1,10 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-wrapper {
+            width: 300px;
+            margin-top: 100px;
+            background-color: #E6F6FF;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #145DA0;
+            text-align: center;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #1C7AB7;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #145DA0;
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 3px solid #1C7AB7;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+        }
+        input[type="text"]:focus, input[type="file"]:focus {
+            border: 3px solid #145DA0;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div class="container">
+    <div class="form-wrapper">
+        <h1>자유게시판</h1>
+
+        <form action="/board/regist" method="post" enctype="multipart/form-data">
+            <label for="id">ID :</label>
+            <input type="text" id="id" name="id">
+            <label for="title">제목 :</label>
+            <input type="text" id="title" name="title">
+            <label for="content">내용 :</label>
+            <input type="text" id="content" name="content">
+            <label for="singleFile">파일 :</label>
+            <input type="file" id="singleFile" name="singleFile">
+            <label for="singleFileDescription">파일 설명 :</label>
+            <input type="text" id="singleFileDescription" name="singleFileDescription">
+            <input type="submit" value="등록하기">
+        </form>
+    </div>
+</div>
+
 </body>
 </html>

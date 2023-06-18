@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Result Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #145DA0;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    strong {
+      font-weight: bold;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-$END$
+<div class="container">
+  <h1>게시글 결과</h1>
+  <p><strong>제목:</strong> <span th:text="${title}"></span></p>
+  <p><strong>내용:</strong> <span th:text="${content}"></span></p>
+  <p><strong>파일:</strong> <span th:text="${picFiles}"></span></p>
+  <p><strong>파일 설명:</strong> <span th:text="${picFileDescription}"></span></p>
+  <div th:each="fileName : ${picFiles}">
+    <img th:src="@{'/uploadFiles/' + ${fileName}}" alt="Uploaded file">
+  </div>
+</div>
 </body>
 </html>
