@@ -22,6 +22,11 @@
       color: #145DA0;
       margin-bottom: 20px;
     }
+    .result-box {
+      border: 2px solid #145DA0;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
     p {
       margin-bottom: 10px;
     }
@@ -37,13 +42,14 @@
 </head>
 <body>
 <div class="container">
-  <h1>게시글 결과</h1>
-  <p><strong>제목:</strong> <span th:text="${title}"></span></p>
-  <p><strong>내용:</strong> <span th:text="${content}"></span></p>
-  <p><strong>파일:</strong> <span th:text="${picFiles}"></span></p>
-  <p><strong>파일 설명:</strong> <span th:text="${picFileDescription}"></span></p>
-  <div th:each="fileName : ${picFiles}">
-    <img th:src="@{'/uploadFiles/' + ${fileName}}" alt="Uploaded file">
+  <h1>게시글</h1>
+  <div class="result-box">
+    <p><strong>ID:</strong> <span th:text="${board.id}"></span></p>
+    <p><strong>제목:</strong> <span th:text="${board.title}"></span></p>
+    <p><strong>내용:</strong> <span th:text="${board.content}"></span></p>
+    <p><strong>파일명:</strong> <span th:text="${board.singleFileDescription}"></span></p>
+    <p><strong>파일:</strong></p>
+    <img th:src="@{'/uploadFiles/' + ${board.singleFileDescription}}" alt="Uploaded file">
   </div>
 </div>
 </body>

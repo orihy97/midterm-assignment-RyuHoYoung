@@ -1,14 +1,21 @@
 package com.ohgiraffers.midtermassignmentryuhoyoung;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+
 public class BoardDTO {
     private String id;
     private String title;
     private String content;
+
+    private String singleFileDescription;
     public BoardDTO(){}
     public BoardDTO(String id, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;
+
     }
 
     public String getId() {
@@ -35,12 +42,21 @@ public class BoardDTO {
         this.content = content;
     }
 
+    public void setSingleFileDescription(String singleFileDescription) {
+        this.singleFileDescription = singleFileDescription;
+    }
+
+    public String getSingleFileDescription() {
+        return singleFileDescription;
+    }
+
     @Override
     public String toString() {
         return "BoardDTO{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
+                ", singleFileDescription='" + singleFileDescription + '\'' +
                 '}';
     }
 }
