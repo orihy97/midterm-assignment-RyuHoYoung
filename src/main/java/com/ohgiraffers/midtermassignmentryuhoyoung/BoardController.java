@@ -32,8 +32,6 @@ public class BoardController {
             String originFileName = singleFile.getOriginalFilename();
             System.out.println(originFileName);
             try {
-//                File changeFile = new File(filePath + "/" + originFileName);
-//                System.out.println(changeFile);
                 Path path = Paths.get(filePath + "/" + originFileName).toAbsolutePath();
                 singleFile.transferTo(path.toFile());
                 model.addAttribute("message", "파일 업로드 성공");
